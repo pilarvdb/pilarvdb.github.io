@@ -118,3 +118,79 @@ li > .dropdown-toggle:focus{
 #search-results .card a:hover {
     color: var(--primary-color) !important;
 }
+/* ---- navbar: make it read as a real bar ---------------------------- */
+
+/* Sticky, so the bar stays reachable while scrolling. The hairline and
+   soft shadow are what actually separate it from the page, since the
+   background colour is the same as the page's by design. */
+header {
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+header .navbar {
+    padding-bottom: 0.75rem;
+}
+
+/* Brand reads a touch stronger than the links */
+.navbar-brand {
+    font-weight: 600;
+}
+
+/* Links: room to breathe, plus an underline that grows on hover */
+header .navbar .navbar-nav .nav-link {
+    position: relative;
+    padding: 0.3rem 0.9rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+header .navbar .navbar-nav .nav-link:hover {
+    opacity: 1;
+}
+
+header .navbar .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0.9rem;
+    right: 0.9rem;
+    bottom: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+header .navbar .navbar-nav .nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* Theme toggle: a bordered circle, so it reads as a control */
+header .theme-toggle {
+    padding-bottom: 0;
+}
+
+header button#theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-left: 0.6rem;
+    border: 1px solid rgba(128, 128, 128, 0.35);
+    border-radius: 50%;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+header button#theme-toggle:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color) !important;
+}
+
+/* Anchor jumps land below the sticky bar instead of behind it */
+section[id] {
+    scroll-margin-top: 90px;
+}

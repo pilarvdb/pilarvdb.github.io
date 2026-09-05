@@ -218,7 +218,7 @@ header .navbar.animate {
     min-height: 80vh;
     line-height: 2rem;
     max-width: 100%;
-    padding-bottom: 150px;
+    padding-bottom: 40px;
 }
 
 #about h3 {
@@ -570,4 +570,145 @@ header .navbar.animate {
 
 #contact .btn:focus {
     box-shadow: none !important;
+}
+/* sports page: one block per event, newest first */
+
+#sports {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    max-width: 100%;
+    padding-bottom: 100px;
+}
+
+/* wider than the theme default, to give the photos room to sit outside */
+#sports .container {
+    width: 100%;
+    max-width: 1400px;
+}
+
+#sports .events {
+    max-width: 1400px;
+}
+
+#sports .event {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    padding: 1.25rem 0;
+}
+
+/* the divider runs under the listing only, so the photos float
+   outside the lines rather than sitting between them */
+#sports .event-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 560px;
+    padding: 1.9rem 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+#sports .event:last-child .event-text {
+    border-bottom: 0;
+}
+
+/* name on the left, date on the right */
+#sports .event-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+}
+
+#sports .event-name {
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1.3;
+}
+
+#sports .event-date {
+    opacity: 0.6;
+    white-space: nowrap;
+}
+
+/* the actual distance, and the finish time */
+#sports .event-meta {
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
+    opacity: 0.75;
+    font-variant-numeric: tabular-nums;
+}
+
+#sports .event-time {
+    white-space: nowrap;
+}
+
+/* splits: label above value, side by side */
+#sports .event-splits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    margin: 1.15rem 0 0;
+}
+
+#sports .event-splits dt {
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    opacity: 0.5;
+}
+
+#sports .event-splits dd {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    font-variant-numeric: tabular-nums;
+}
+
+/* a photo slot either side, sized to the window rather than fixed.
+   empty slots hold their space so every listing stays the same width. */
+#sports .event-photo {
+    flex: 0 0 clamp(240px, 27%, 380px);
+    aspect-ratio: 1 / 1;
+}
+
+#sports .event-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.85rem;
+    box-shadow: 0px 8px 56px rgba(15, 80, 100, 0.16);
+    transition: box-shadow 0.3s;
+}
+
+#sports .event-photo img:hover {
+    box-shadow: 0 0 11px rgb(15 80 100 / 20%);
+}
+
+/* too narrow for three columns: stack, and drop the empty slots */
+@media (max-width: 899px) {
+    #sports .event {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.25rem;
+        padding: 1.5rem 0;
+    }
+
+    #sports .event-text {
+        max-width: none;
+        padding: 0 0 1.5rem;
+    }
+
+    #sports .event-photo {
+        flex: 0 0 auto;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        order: 2;
+    }
+
+    #sports .event-photo-empty {
+        display: none;
+    }
 }
