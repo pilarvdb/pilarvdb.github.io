@@ -172,6 +172,40 @@ header .navbar.animate {
     transition: none;
 }
 
+#hero a.btn.social-link {
+    display: inline-flex;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+    margin-left: 0.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    border-radius: .75rem;
+    background-color: var(--background-color);
+    box-shadow: 0px 6px 24px rgba(15, 80, 100, 0.14);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#hero a.btn.social-link .social-link-icon {
+    display: flex;
+    align-items: center;
+    padding: 0.7rem 0.95rem;
+    background-color: var(--primary-color);
+    color: #1a1a1a;
+    font-size: 1.15rem;
+}
+
+#hero a.btn.social-link .social-link-label {
+    padding: 0.7rem 1.35rem;
+    line-height: 1.5;
+}
+
+#hero a.btn.social-link:hover {
+    background-color: var(--background-color) !important;
+    transform: translateY(-3px);
+    box-shadow: 0px 12px 32px rgba(15, 80, 100, 0.22);
+    opacity: 1;
+}
+
 #hero a.btn:focus {
     box-shadow: none;
 }
