@@ -1,3 +1,4 @@
 User-agent: *
+Allow: /
 
 Sitemap: https://pilarvdb.github.io/sitemap.xml
